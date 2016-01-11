@@ -15,6 +15,7 @@
 		8D6E33EC1C43987700F56B63 /* Xcode3TargetMembershipDataSource+Hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6E33EB1C43987700F56B63 /* Xcode3TargetMembershipDataSource+Hook.m */; };
 		8D6E33F01C43989400F56B63 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6E33EF1C43989400F56B63 /* JRSwizzle.m */; };
 		8DE090D01C43A7D8002E76B0 /* Xcode3UI in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE090CF1C43A7D8002E76B0 /* Xcode3UI */; };
+		8DE090D71C43ABE8002E76B0 /* NSView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE090D61C43ABE8002E76B0 /* NSView+Hierarchy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		8D6E33EE1C43989400F56B63 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
 		8D6E33EF1C43989400F56B63 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
 		8DE090CF1C43A7D8002E76B0 /* Xcode3UI */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = Xcode3UI; sourceTree = "<group>"; };
+		8DE090D51C43ABE8002E76B0 /* NSView+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+Hierarchy.h"; sourceTree = "<group>"; };
+		8DE090D61C43ABE8002E76B0 /* NSView+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+Hierarchy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,7 @@
 				8D6E33DD1C4396A200F56B63 /* NSObject_Extension.h */,
 				8D6E33DE1C4396A200F56B63 /* NSObject_Extension.m */,
 				8D6E33E01C4396A200F56B63 /* Info.plist */,
+				8DE090D41C43ABE8002E76B0 /* NSView+Hierarchy */,
 				8D6E33ED1C43989400F56B63 /* JRSwizzle */,
 				8D6E33E91C43987700F56B63 /* Hook */,
 				8D6E33E61C43982900F56B63 /* class-dump */,
@@ -126,6 +130,15 @@
 				8D6E33EF1C43989400F56B63 /* JRSwizzle.m */,
 			);
 			path = JRSwizzle;
+			sourceTree = "<group>";
+		};
+		8DE090D41C43ABE8002E76B0 /* NSView+Hierarchy */ = {
+			isa = PBXGroup;
+			children = (
+				8DE090D51C43ABE8002E76B0 /* NSView+Hierarchy.h */,
+				8DE090D61C43ABE8002E76B0 /* NSView+Hierarchy.m */,
+			);
+			path = "NSView+Hierarchy";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +212,7 @@
 				8D6E33DC1C4396A200F56B63 /* XcodePlugin.m in Sources */,
 				8D6E33DF1C4396A200F56B63 /* NSObject_Extension.m in Sources */,
 				8D6E33F01C43989400F56B63 /* JRSwizzle.m in Sources */,
+				8DE090D71C43ABE8002E76B0 /* NSView+Hierarchy.m in Sources */,
 				8D6E33EC1C43987700F56B63 /* Xcode3TargetMembershipDataSource+Hook.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,7 @@
 
 #import "XcodePlugin.h"
 #import "Xcode3TargetMembershipDataSource+Hook.h"
+#import "NSView+Hierarchy.h"
 
 @interface XcodePlugin()
 
@@ -32,6 +33,7 @@
     }
     return self;
 }
+
 
 - (void)addPluginsMenu
 {
@@ -69,6 +71,8 @@
     
     //重新交换函数
     [Xcode3TargetMembershipDataSource hook];
+    
+    [[[NSApp mainWindow] contentView] dumpWithIndent:@""];
 }
 
 - (void)dealloc
