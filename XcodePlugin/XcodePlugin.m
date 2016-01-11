@@ -41,7 +41,6 @@
     if (!mainMenu) {
         return;
     }
-    
     // 增加一个"Plugins"菜单到"Window"菜单前面
     NSMenuItem *pluginsMenuItem = [mainMenu itemWithTitle:@"Plugins"];
     if (!pluginsMenuItem) {
@@ -51,16 +50,34 @@
         NSInteger windowIndex = [mainMenu indexOfItemWithTitle:@"Window"];
         [mainMenu insertItem:pluginsMenuItem atIndex:windowIndex];
     }
+    [self addAutoAllTargetsMenuItemWith:pluginsMenuItem];
     
-    // 添加"Auto Select All Targets"子菜单
+//    [self addSandboxMenuItemWith:pluginsMenuItem];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSMenuDidChangeItemNotification object:nil];
+}
+/**
+ *  添加 自动链接所有target item
+ *
+ *  @param pluginsMenuItem
+ */
+- (void)addAutoAllTargetsMenuItemWith:(NSMenuItem*)pluginsMenuItem
+{
     NSMenuItem *subMenuItem = [[NSMenuItem alloc] init];
     subMenuItem.title = @"AutoAdd  All Targets";
     subMenuItem.target = self;
     subMenuItem.action = @selector(toggleMenu:);
     subMenuItem.state = NSOnState;
     [pluginsMenuItem.submenu addItem:subMenuItem];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSMenuDidChangeItemNotification object:nil];
+}
+
+- (void)addSandboxMenuItemWith:(NSMenuItem*)pluginsMenuItem
+{
+    NSMenuItem *subMenuItem = [[NSMenuItem alloc] init];
+    subMenuItem.title = @"Sandbox";
+    subMenuItem.target = self;
+    subMenuItem.action = @selector(SandboxMenuClick);
+    [pluginsMenuItem.submenu addItem:subMenuItem];
 }
 
 
@@ -73,6 +90,20 @@
     [Xcode3TargetMembershipDataSource hook];
     
     [[[NSApp mainWindow] contentView] dumpWithIndent:@""];
+}
+
+- (void)SandboxMenuClick
+{
+}
+
+#pragma mark - Open Finder
+- (void)openFinderWithFilePath:(NSString *)path{
+    if (!path.length) {
+        return ;
+    }
+    NSString *open = [NSString stringWithFormat:@"open %@",path];
+    const char *str = [open UTF8String];
+    system(str);
 }
 
 - (void)dealloc
