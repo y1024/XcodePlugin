@@ -25,7 +25,9 @@
     // Run our custom code
     NSMutableArray *wrappedTargets = [self valueForKey:@"wrappedTargets"];
     for (Xcode3TargetWrapper *wrappedTarget in wrappedTargets) {
-        wrappedTarget.selected = YES;
+        if ([wrappedTarget.name rangeOfString:@"Tests"].location == NSNotFound) {
+             wrappedTarget.selected = YES;
+        }
     }
 }
 
